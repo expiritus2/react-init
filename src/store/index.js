@@ -1,6 +1,6 @@
 import { createStore, compose } from 'redux';
 
-import rootReducer from './modules';
+import rootReducer from './reducers';
 
 const devtool = process.env.NODE_ENV && window.__REDUX_DEVTOOLS_EXTENSION__;
 const reduxDevTools = (devtool && devtool()) || compose;
