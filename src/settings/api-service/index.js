@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const apiServer = axios.create({
-    baseURL: '',
+    baseURL: 'https://jsonplaceholder.typicode.com',
 });
