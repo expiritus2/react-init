@@ -26,7 +26,7 @@ function execFunc({ cfg, options, ACTION, method, pending = true, cb }) {
                 cb(response);
             }
         } catch (err) {
-            const config = { ...cfg, status: err.statusCode };
+            const config = { ...cfg, status: err.response.status, message: err.message };
 
             setError({ dispatch, ACTION, cfg: config, response: err });
         }
@@ -38,9 +38,9 @@ export function setPending({ dispatch, ACTION }) {
 }
 
 export function setData({ dispatch, ACTION, cfg, response }) {
-    dispatch(ACTION({ state: State.READY, data: response.data, meta: cfg, response }));
+    dispatch(ACTION({ state: State.READY, data: response.data, meta: cfg }));
 }
 
-export function setError({ dispatch, ACTION, cfg, response }) {
-    dispatch(ACTION({ state: State.ERROR, data: undefined, meta: cfg, response }));
+export function setError({ dispatch, ACTION, cfg }) {
+    dispatch(ACTION({ state: State.ERROR, data: undefined, meta: cfg }));
 }
