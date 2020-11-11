@@ -44,6 +44,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'prefer-destructuring': ['error', { array: false, object: true }],
         'import/no-cycle': 'off',
+        'import/no-extraneous-dependencies': 'off',
         'consistent-return': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',

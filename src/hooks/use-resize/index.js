@@ -10,8 +10,10 @@ const useResize = () => {
     });
 
     const handleResize = useCallback(() => {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        const { innerWidth, innerHeight } = window;
+
+        const width = innerWidth;
+        const height = innerHeight;
         const mobile = width <= Screen.MOBILE;
         const mobileSmall = width <= Screen.MOBILE_SMALL;
 

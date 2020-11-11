@@ -1,11 +1,15 @@
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
-const devtool = process.env.NODE_ENV && window.__REDUX_DEVTOOLS_EXTENSION__;
-const reduxDevTools = (devtool && devtool()) || compose;
+const middlewares = [ReduxThunk];
 
-const store = createStore(rootReducer, reduxDevTools);
+const storeEnhancers = process.env.NODE_ENV === 'development'
+    ? composeWithDevTools(applyMiddleware(...middlewares))
+    : applyMiddleware(...middlewares);
+const store = createStore(rootReducer, {}, storeEnhancers);
 
 export default store;
 export const { dispatch, getState } = store;

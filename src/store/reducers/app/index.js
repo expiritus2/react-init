@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import app from './app';
+import data from './data';
+import state from './state';
 
 export default combineReducers({
-    app,
+    data,
+    state,
 });
