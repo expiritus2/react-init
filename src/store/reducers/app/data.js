@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { State } from 'settings/constants/state';
 
-import { getTestAction } from 'store/actions';
+import { TestActions } from 'store/actions';
 
 const initialData = {
     state: State.IDLE,
@@ -10,7 +10,7 @@ const initialData = {
 };
 
 export default handleActions({
-    [getTestAction]: (state, { payload }) => ({
+    [TestActions.getTest]: (state, { payload }) => ({
         ...state,
         state: payload.state,
         data: payload.data,

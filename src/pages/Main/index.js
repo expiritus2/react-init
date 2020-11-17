@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { load } from 'store/actions/test';
+import { load } from 'store/actions/app';
 
 const Main = (props) => {
     const onClick = () => {
