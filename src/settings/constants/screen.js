@@ -1,7 +1,3 @@
-export class Screen {
-    static DESKTOP = 1200;
-
-    static MOBILE = 768;
-
-    static MOBILE_SMALL = 565;
-}
+export const DESKTOP = 1200;
+export const MOBILE = 768;
+export const MOBILE_SMALL = 565;

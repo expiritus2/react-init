@@ -1,19 +1,20 @@
 import { handleActions } from 'redux-actions';
-import { State } from 'settings/constants/state';
+import { IDLE } from 'settings/constants/api-state';
+import { getDataFor } from 'store/helpers';
 
-import { AppActions } from 'store/actions';
+import { getTest } from 'store/actions/app';
 
 const initialData = {
-    state: State.IDLE,
+    state: IDLE,
     data: undefined,
     meta: {},
 };
 
 export default handleActions({
-    [AppActions.getTest]: (state, { payload }) => ({
+    [getTest]: (state, { payload }) => ({
         ...state,
         state: payload.state,
-        data: payload.data,
-        meta: payload.meta,
+        data: getDataFor('data', payload, initialData),
+        meta: getDataFor('meta', payload, initialData),
     }),
 }, initialData);

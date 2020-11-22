@@ -1,7 +1,7 @@
-import { Main, NotFound } from 'pages';
-import { routes } from '../routes';
+import mainPageConfig from './main';
+import notFoundPageConfig from './not-found';
 
 export default [
-    { path: routes.index, component: Main, exact: true },
-    { path: '*', component: NotFound },
+    ...mainPageConfig,
+    ...notFoundPageConfig,
 ];

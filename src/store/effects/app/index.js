@@ -1,5 +1,5 @@
-import * as api from 'store/effects/core';
+import Api from 'store/effects/core/api';
 import { getTestPosts } from 'api/app';
-import { AppActions } from 'store/actions';
+import { getTest } from 'store/actions/app';
 
-export const load = api.execBase(AppActions.getTest, getTestPosts);
+export const load = Api.execBase(getTest, getTestPosts);

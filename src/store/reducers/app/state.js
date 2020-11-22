@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
-import { State } from 'settings/constants/state';
+import { PENDING } from 'settings/constants/api-state';
 
-import { AppActions } from 'store/actions';
+import { getTest } from 'store/actions/app';
 
 const initialData = {
     pending: false,
@@ -9,9 +9,9 @@ const initialData = {
 };
 
 export default handleActions({
-    [AppActions.getTest]: (state, { payload }) => ({
+    [getTest]: (state, { payload }) => ({
         ...state,
-        pending: payload.state === State.PENDING,
+        pending: payload.state === PENDING,
         data: payload.data,
     }),
 }, initialData);

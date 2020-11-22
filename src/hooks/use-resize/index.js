@@ -1,12 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Screen } from 'settings/constants/screen';
+import { DESKTOP, MOBILE, MOBILE_SMALL } from 'settings/constants/screen';
 
 const useResize = () => {
     const [screen, setScreen] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
-        mobile: window.innerWidth <= Screen.MOBILE,
-        mobileSmall: window.innerWidth <= Screen.MOBILE_SMALL,
+        desktop: window.innerWidth > DESKTOP,
+        tablet: window.innerWidth <= DESKTOP && window.innerWidth > MOBILE,
+        mobile: window.innerWidth <= MOBILE,
+        mobileSmall: window.innerWidth <= MOBILE_SMALL,
     });
 
     const handleResize = useCallback(() => {
@@ -14,10 +16,12 @@ const useResize = () => {
 
         const width = innerWidth;
         const height = innerHeight;
-        const mobile = width <= Screen.MOBILE;
-        const mobileSmall = width <= Screen.MOBILE_SMALL;
+        const desktop = width > DESKTOP;
+        const tablet = width <= DESKTOP && width > MOBILE;
+        const mobile = width <= MOBILE;
+        const mobileSmall = width <= MOBILE_SMALL;
 
-        setScreen({ width, height, mobile, mobileSmall });
+        setScreen({ width, height, desktop, tablet, mobile, mobileSmall });
     }, []);
 
     useEffect(() => {

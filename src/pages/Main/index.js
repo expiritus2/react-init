@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { load } from 'store/effects/app';
+import classNames from 'classnames';
+
+import styles from './styles.scss';
 
 const Main = (props) => {
     const onClick = () => {
@@ -11,7 +14,7 @@ const Main = (props) => {
     };
 
     return (
-        <div>
+        <div className={classNames(styles.container)}>
             Main Page
             <button type="button" onClick={onClick}>Click me</button>
         </div>

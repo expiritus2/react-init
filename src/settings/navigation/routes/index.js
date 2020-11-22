@@ -1,3 +1,5 @@
+import mainPageRoutes from './main';
+
 export const routes = {
-    index: '/',
+    ...mainPageRoutes,
 };
