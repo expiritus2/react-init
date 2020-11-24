@@ -21,7 +21,7 @@ export default class Api {
 
             try {
                 const response = await method(cfg, options);
-                Api.setData({ dispatch, ACTION, cfg, response });
+                Api.setData({ dispatch, ACTION, cfg: { ...cfg, ...response.meta }, response });
 
                 if (typeof cb === 'function') {
                     cb(response);
