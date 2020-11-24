@@ -6,15 +6,14 @@ export function getTestData(cfg) {
     const commentsReq = getComments(cfg);
 
     return new Promise((resolve, reject) => {
-        Promise.allSettled([postsReq, commentsReq])
+        Promise
+            .allSettled([postsReq, commentsReq])
             .then(([posts, comments]) => {
                 const data = {
-                    posts: getPromiseAllSettledProp(posts),
-                    comments: getPromiseAllSettledProp(comments),
+                    posts: getPromiseAllSettledProp(posts), comments: getPromiseAllSettledProp(comments),
                 };
                 const meta = {
-                    posts: getPromiseAllSettledReason(posts),
-                    comments: getPromiseAllSettledReason(comments),
+                    posts: getPromiseAllSettledReason(posts), comments: getPromiseAllSettledReason(comments),
                 };
 
                 resolve({ data, meta });
