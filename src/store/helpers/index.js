@@ -1,5 +1,7 @@
+import cloneDeep from 'clone-deep';
+
 export function getDataFor(fieldName, payload, initialData) {
-    return payload[fieldName] || initialData[fieldName];
+    return payload[fieldName] || cloneDeep(initialData[fieldName]);
 }
 
 export function getPromiseAllSettledProp(data, propName = 'data') {
