@@ -24,12 +24,16 @@ export default class Api {
                 Api.setData({ dispatch, ACTION, cfg: { ...cfg, ...response.meta }, response });
 
                 if (typeof cb === 'function') {
-                    cb(response);
+                    cb(null, response);
                 }
             } catch (err) {
                 const config = { ...cfg, status: err.response.status, message: err.message };
 
                 Api.setError({ dispatch, ACTION, cfg: config, response: err });
+
+                if (typeof cb === 'function') {
+                    cb(err);
+                }
             }
         };
     }

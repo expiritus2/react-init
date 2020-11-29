@@ -1,11 +1,14 @@
 const path = require('path');
 
+const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ROOT = path.resolve(__dirname);
 const ENTRY = path.resolve(ROOT, 'src');
+
+require('dotenv').config();
 
 module.exports = {
     entry: [path.resolve(ENTRY, 'index.js')],
@@ -106,6 +109,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'static/[name].[hash].css',
         }),
+        new webpack.EnvironmentPlugin([]),
     ],
     devtool: 'source-map',
 };
