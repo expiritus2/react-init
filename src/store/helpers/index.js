@@ -1,5 +1,5 @@
-export function getDataFor(fieldName, data, initialData) {
-    return data[fieldName] || initialData[fieldName];
+export function getDataFor(fieldName, payload, initialData) {
+    return payload[fieldName] || initialData[fieldName];
 }
 
 export function getPromiseAllSettledProp(data, propName = 'data') {
