@@ -5,7 +5,7 @@ import { getTest } from 'store/actions/app';
 
 const initialData = {
     pending: false,
-    data: undefined,
+    data: null,
 };
 
 export default handleActions({

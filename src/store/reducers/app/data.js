@@ -6,7 +6,7 @@ import { getTest } from 'store/actions/app';
 
 const initialData = {
     state: IDLE,
-    data: undefined,
+    data: null,
     meta: {},
 };
 
