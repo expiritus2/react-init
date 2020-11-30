@@ -6,12 +6,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ROOT = path.resolve(__dirname);
-const ENTRY = path.resolve(ROOT, 'src');
+const SRC = path.resolve(ROOT, 'src');
 
 require('dotenv').config();
 
 module.exports = {
-    entry: [path.resolve(ENTRY, 'index.js')],
+    entry: [path.resolve(SRC, 'index.js')],
     module: {
         rules: [
             {
@@ -99,11 +99,14 @@ module.exports = {
     resolve: {
         modules: ['node_modules', 'src'],
         extensions: ['.js', '.jsx'],
+        alias: {
+            styles: path.resolve(SRC, 'styles/'),
+        },
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
-            template: path.resolve(ENTRY, 'index.html'),
+            template: path.resolve(SRC, 'index.html'),
             filename: 'index.html',
         }),
         new MiniCssExtractPlugin({
