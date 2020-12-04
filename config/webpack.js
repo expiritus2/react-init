@@ -47,9 +47,6 @@ module.exports = {
                 exclude: /\.notmodule\.(css|sass|scss)$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        hmr: true,
-                    },
                 }, {
                     loader: 'css-loader',
                     options: {
@@ -113,7 +110,7 @@ module.exports = {
             filename: 'index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: 'static/[name].[hash].css',
+            filename: 'static/[name].[fullhash].css',
         }),
         new webpack.DefinePlugin(getClientEnvironment('').stringified),
     ],

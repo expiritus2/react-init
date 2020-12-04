@@ -1,7 +1,7 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack');
 
-module.exports = merge.strategy({ entry: 'prepend' })(common, {
+module.exports = merge(common, {
     mode: 'development',
     stats: 'minimal',
     devServer: {
