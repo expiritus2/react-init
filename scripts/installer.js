@@ -24,6 +24,8 @@ class Installer {
             'react-router-prop-types',
             'redux',
             'redux-actions',
+            'redux-thunk',
+            'classnames',
         ];
     }
 
@@ -63,6 +65,9 @@ class Installer {
             'webpack-cli',
             'webpack-dev-server',
             'webpack-merge',
+            'dotenv',
+            'redux-devtools-extension',
+            'postcss',
         ];
     }
 
