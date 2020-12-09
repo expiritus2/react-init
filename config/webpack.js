@@ -3,6 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const webpack = require('webpack');
 
@@ -15,6 +16,9 @@ const { getClientEnvironment } = require('./env');
 
 module.exports = {
     entry: [path.resolve(SRC, 'index.js')],
+    output: {
+        path: path.resolve(ROOT, 'dist'),
+    },
     module: {
         rules: [
             {
@@ -103,13 +107,17 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
-            template: path.resolve(SRC, 'index.html'),
-            filename: 'index.html',
+            template: path.resolve(ROOT, 'public', 'index.html'),
         }),
         new MiniCssExtractPlugin({
             filename: 'static/[name].[fullhash].css',
         }),
         new webpack.DefinePlugin(getClientEnvironment('').stringified),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(ROOT, 'public'), to: '' },
+            ],
+        }),
     ],
     devtool: 'source-map',
 };
