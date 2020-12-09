@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { load } from 'store/effects/app';
 import classNames from 'classnames';
 
-import styles from './styles.scss';
+import styles from './styles.module.scss';
 
 const Main = (props) => {
     const onClick = () => {
@@ -14,7 +14,7 @@ const Main = (props) => {
     };
 
     return (
-        <div className={classNames(styles.container)}>
+        <div className={classNames(styles.container, 'container')}>
             Main Page
             <button type="button" onClick={onClick}>Click me</button>
         </div>
