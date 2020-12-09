@@ -43,13 +43,9 @@ module.exports = {
                 },
             },
             {
-                test: /\.(css|sass|scss)$/,
-                exclude: /\.notmodule\.(css|sass|scss)$/,
+                test: /\.module\.(css|sass|scss)$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        hmr: true,
-                    },
                 }, {
                     loader: 'css-loader',
                     options: {
@@ -72,12 +68,10 @@ module.exports = {
                 }],
             },
             {
-                test: /\.notmodule\.(css|sass|scss)$/,
+                test: /\.(css|sass|scss)$/,
+                exclude: /\.module\.(css|sass|scss)$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        hmr: true,
-                    },
                 }, {
                     loader: 'css-loader',
                     options: {
